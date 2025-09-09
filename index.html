@@ -1,0 +1,1653 @@
+<!-- resume-shell.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demetrius E. Johnson - Résumé</title>
+
+    <!-- GLOBAL STYLES ─────────────────────────────────────────── -->
+    <style>
+      /* --- Brand colours as CSS variables for easy reuse --- */
+      :root {
+        --um-blue: #00274c; /* Michigan Blue */
+        --um-maize: #ffcb05; /* Michigan Maize */
+        --ink: #333;
+        --bg: #f0f2f5;
+        --card: #fff;
+        --link: #0066cc;
+        --accent: #4c49e9; /* headings */
+        --side-width: 260px;
+        --gap: 24px;
+      }
+
+      /* Smooth scrolling for internal anchors */
+      html { scroll-behavior: smooth; }
+
+      /* System-font stack keeps everything offline & self-contained */
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: var(--bg);
+        color: var(--ink);
+      }
+
+      /* Two-column layout */
+      .layout {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: var(--side-width) 1fr;
+        gap: var(--gap);
+        align-items: start;
+      }
+
+      /* Sidebar (pure CSS; sticky for easy navigation) */
+      .sidenav {
+        position: sticky;
+        top: 20px;
+        background: var(--card);
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        border: 1px solid rgba(0,0,0,.06);
+      }
+      .sidenav-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: .01em;
+        margin-bottom: 8px;
+        color: var(--um-blue);
+      }
+      .sidenav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .sidenav li + li { margin-top: 6px; }
+      .sidenav a {
+        display: block;
+        text-decoration: none;
+        color: var(--link);
+        font-size: 0.95rem;
+        line-height: 1.3;
+        border-radius: 6px;
+        padding: 6px 8px;
+      }
+      .sidenav a:hover { background: rgba(0,0,0,.04); text-decoration: underline; }
+
+      /* Main content card */
+      .container {
+        background-color: var(--card);
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      h1 {
+        color: var(--um-blue);
+        font-size: 2.2em;
+        font-weight: 700;
+        margin: 0 0 6px 0;
+      }
+      h2 {
+        color: var(--accent);
+        font-size: 1.5em;
+        font-weight: 700;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 5px;
+        margin: 20px 0;
+      }
+
+      a { color: var(--link); text-decoration: none; font-weight: 500; }
+      a:hover { text-decoration: underline; }
+
+      /* Generic “section” rules shared by every block */
+      .section {
+        margin-bottom: 30px;
+        padding: 20px;
+        border-radius: 8px;
+        transition: background 0.3s, box-shadow .2s;
+        scroll-margin-top: 16px; /* better anchor landing */
+      }
+
+      /* Alternate backgrounds & matching text colours */
+      .section:nth-of-type(odd)   { background: var(--um-maize); color: var(--um-blue); }
+      .section:nth-of-type(even)  { background: var(--um-blue);  color: var(--um-maize); }
+
+      /* Make lists a bit larger for readability */
+      .section ul { list-style: disc; padding-left: 20px; }
+      .section ul li { margin-bottom: 10px; font-size: 1.05em; }
+
+      /* Focus / anchor target highlight */
+      .section:target {
+        outline: 3px solid var(--accent);
+        box-shadow: 0 0 0 4px rgba(76,73,233,.15) inset;
+      }
+
+      /* Collapsible section styling for <details>/<summary> */
+      summary {
+        display: block;          /* Make summary full-width clickable */
+        cursor: pointer;         /* Hand cursor on hover */
+        list-style: none;        /* Remove default bullets/markers */
+        outline: none;           /* Remove default focus outline */
+      }
+      summary::-webkit-details-marker { display: none; }
+      details.section summary:hover h2 { filter: brightness(0.9); }
+
+      /* Custom chevron indicators */
+      details.section summary::after {
+        content: "Click Here to Open This Collapsable Section ▸";
+        margin-left: 8px;
+        font-size: 0.9em;
+        vertical-align: middle;
+      }
+      details.section[open] summary::after { content: "Click Here to Close This Collapsable Section ▾"; }
+
+      /* Small screens: stack layout */
+      @media (max-width: 820px) {
+        .layout { grid-template-columns: 1fr; }
+        .sidenav { position: static; order: -1; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- Left: Side navigation gets injected here -->
+      <!-- START-SIDENAV -->
+<nav class="sidenav" aria-label="Section navigation">
+  <div class="sidenav-title">On this page</div>
+  <ul>
+  <li><a href="#header">Personal Contact</a></li>
+  <li><a href="#personal-statement">Personal Statement</a></li>
+  <li><a href="#technical-skills">Technical Skills</a></li>
+  <li><a href="#home-lab-and-smart-home-setup">Home Lab and Smart Home Setup</a></li>
+  <li><a href="#employment-history">Employment History</a></li>
+  <li><a href="#certifications-and-achievements">Certifications and Achievements</a></li>
+  <li><a href="#education">Education</a></li>
+  <li><a href="#programming-projects">Programming Projects</a></li>
+  </ul>
+</nav>
+<!-- END-SIDENAV -->
+
+      <!-- Right: Main resume content -->
+      <div class="container" id="top">
+        <!-- 🔽  build_resume.py injects the section fragments right here  🔽 -->
+        <!-- START-SECTIONS -->
+<div class="section" id="header">
+  <style>
+    #header {
+      background: #fbffe2;
+    }
+  </style>
+  <h1>Demetrius E. Johnson (Meech)</h1>
+  <p><strong>Follower of Christ, the King of kings</strong></p>
+  <p><strong>CCNA Certified</strong></p>
+  <p>Email: demetriusejohnson@gmail.com</p>
+</div>
+
+<div class="section" id="personal-statement">
+  <style>
+    #personal-statement {
+      background: #e0eaff;
+      color: #111;
+    }
+  </style>
+  <h2>Personal Statement</h2>
+  <p>
+    I am an IT enthusiast seeking to help develop the
+    <strong>computer science</strong> field and
+    <strong>LOVE</strong> programming. It is for this reason I maintain a highly
+    sophsiticated, up-to-date Home Research Lab. I started in technology at a
+    young age through my natural draw and <em>love</em> for computers and
+    computer network technology and how the internet works. My father and mother
+    constantly exposed to me the latest technology of the time, and I became the
+    at-home onsite computer technician. That is why I modded computer games like
+    the infamous building block game <em>Minecraft</em> and <em>Halo</em> when I
+    was 11 years old in junior high, and eventually studied over two summers to
+    obtain the Cisco Certified Network Associate certification (CCNA) as a
+    junior in high school, thanks in great part to my encouraging older brother
+    who is a Network Engineer. If there were only a few defining characteristics
+    you will remember of me, it is that I am a <strong>deep thinker</strong>,
+    and very <strong>studious</strong> and <strong>observant</strong> at all
+    times. I live and breathe <strong>scientific thinking</strong>, from
+    <em>mathematics</em>, <em>economics</em>, <em>physics</em>,
+    <em>genetics</em>, <strong>computer science</strong> — down to the very
+    <strong>psychology</strong> of how we think, learn, and communicate in this
+    <em>intertwined, complex system</em> governed by the
+    <strong>Laws of Creation</strong>, which is the frontier of
+    <strong>Cybernetics</strong> and <strong>Artificial Intelligence</strong>. I
+    believe that, in essence, there is truly <em>nothing artificial</em> about
+    Artificial Intelligence at all. By the very sophisticated nature of the
+    universe, there is <strong>no such thing</strong> as intelligence that is
+    artificial! There is only <strong><em>real</em> intelligence</strong>. And
+    that intelligence is built into the very fabric of the Universe. Only we
+    must continue to <strong><em>discover</em></strong> it, and
+    <strong><em>harness</em></strong> it, as God has planned for us as stewarts
+    over His Creation.
+  </p>
+</div>
+
+<details  class="section" id="technical-skills">
+  <style>
+    #technical-skills {
+      background: #e0eaff;
+      color: #111;
+    }
+    #technical-skills ul {
+      column-count: 2;
+    }
+  </style>
+  <summary><h2>Technical Skills</h2></summary>
+  <ul>
+    <li>
+      Computer Networking and Disk Processes: Cisco IOS, Routing and Switching,
+      TCP/IPv4/IPv6, VPN; Layer 2 (Spanning Tree Protocol) and Layer 3 (RIP,
+      EIGRP) network protocols; security including public-private key encryption
+      and certificate management; extensive experience with disk partitioning
+      and file system processes/structure; digital forensics using the Kali
+      Linux distribution for data recovery and disk analysis (Autopsy, ddrescue,
+      and other tools); DHCP, DNS, and Wireless Mesh Networks.
+    </li>
+    <li>
+      Programming: Microsoft MASM Assembly (x86), C++, Python, Bash scripting,
+      YAML configuration for Docker and Kubernetes, Fundamentals of HTML, Web
+      Scraping; extensive experience with multithreading including using C++ and
+      Python threads libraries.
+    </li>
+    <li>
+      Containerization: Docker, Kubernetes/OpenShift, Infrastructure as Code
+      (IaC) including integration with CI/CD pipelines (Tekton/ArgoCD), NGINX
+      Reverse Proxy Setup.
+    </li>
+    <li>
+      Operating Systems: Windows 10/11, Linux-based OSes (Ubuntu, CentOS, Kali
+      Linux), and MacOS (I can setup and program in and for any operating system
+      environment), WSL2, Windows Hyper-V (for home lab management of Windows
+      machines), VirtualBox (hyperviser used for my home lab to run kubernetes
+      nodes and other services on Linux), extensive experience with Android and
+      iOS.
+    </li>
+    <li>
+      DevOps Tools: Git protocol tools such as GitLab (home-lab instance) and
+      GitHub; monitoring tools such as Grafana (using Prometheus datasource to
+      monitor a kubernetes cluster resources).
+    </li>
+    <li>
+      AI/ML, Data pipelines including scraping, analysis and configuration:
+      OpenCV and pandas Python librarys; experience with python web scraping
+      libraries including Beautiful Soup and Selenium web driver; extensive
+      knowledge of training and fine tuning YOLOv3 models for vision systems
+      deployments, Custom Vision Models with customary pipeline logic, extensive
+      use and foundational, ground-level knowledge of Large Language Models
+      (LLMs) and neural networks in general, including probability distribution
+      and thus
+      <strong><em>mastery in prompt engineering</em></strong> for speeding up
+      programming and scripting workflows, including creation of prompt
+      frameworks to build highly complex, modularized programs and programming
+      frameworks, as well as training and fine tuning AI models.
+    </li>
+    <li>
+      Robotics and Embedded Systems Programming: Familiarity programming robotic arm systems, including using Arduino IDE to deploy code to a microcontroller of a 6-servor robot that I built, and I completed the entire online course training for Faunic 6-joint robot arm, including developing a simulation program that involved deploying assembly code for jogging a robot in various jog frames in a simulation for an egg-cracking robot program.
+    </li>
+    <li>
+      Cloud &amp; Virtualization: Virtual Machines, Server and Edge Device
+      Management (Intune, Azure, FIM group management), Containerized and
+      Distributed Applications.
+    </li>
+    <li>
+      Automation and Framework Building: Python and Bash scripting for task
+      automation, System Monitoring (Grafana, VaultOS). Ability to create
+      frameworks, including using programming languages ("programming for the
+      programmer"), atop which enables and automates the process of building
+      future programs and scripts under a common, easy, and maintainable
+      standard that encapsualtes and keeps complexity in check.
+    </li>
+    <li>
+      Office Tools: MS Office 365, MS Project, SharePoint (including page
+      creation and entire site management), Technical Documentation Tools
+      including Markdown format, Miro/LucidChart, PowerPoint; Use of Rally and
+      Jira to track projects and team workflows.
+    </li>
+    <li>
+      Smart Home Technologies: Home Assistant, IoT Sensor Integration,
+      Automation Scripting (currently working on integrations with NodeRed and
+      N8N).
+    </li>
+  </ul>
+</details>
+
+<details  class="section" id="home-lab-and-smart-home-setup">
+  <summary><h2>Home Lab and Smart Home Setup</h2></summary>
+  <p>
+    I have developed an advanced home lab setup comprising 15 desktops running
+    Windows, with Hyper-V or WSL2 running Linux to manage containerized
+    applications within my home network. My infrastructure includes the
+    following components:
+  </p>
+  <ul>
+    <li>NGINX Reverse Proxy server to manage web traffic across my network</li>
+    <li>GitLab server for version control and CI/CD pipelines</li>
+    <li>Plex Media Server for streaming media across my devices</li>
+    <li>DHCP and DNS servers to manage local network resources</li>
+    <li>
+      Distributed access points and PoE devices to extend network coverage
+      throughout my home
+    </li>
+    <li>
+      Ethernet over power adapters to extend wired connectivity to distant areas
+    </li>
+    <li>
+      Custom-designed backup power strategy protecting all electronic devices,
+      with over 24 hours of power during blackouts, including my refrigerator
+      units
+    </li>
+    <li>
+      Home Assistant setup for smart home automation, integrating IoT sensors
+      for monitoring and controlling various components of my home
+    </li>
+    <li>
+      Multiple RAID servers running a custom-designed backup strategy for data
+      redundancy and protection
+    </li>
+    <li>
+      Custom-built AI server used to run Large Language Models (LLMs) locally,
+      leveraging the power of my home lab for AI research and experimentation
+    </li>
+    <li>
+      Multiple Kuberentes clusters, including my newest addtion: a kubernetes
+      test lab cluster with 4 nodes comprised of HP Elite 600G4 Tower Desktops,
+      where each node contains a 6-core-12-thread processor, 32GB of RAM, 2 TB
+      of ssd/nvme storage, Windows 11 Pro (will manage the nodes with Hyper-V
+      but install WSL/VirtualBox to run a Linux virtual machine to add to
+      kubernetes cluster)
+    </li>
+    <li>
+      Kali Linux Digital Forensics lab, equipped with: a 20TB workstation
+      including 10TB of SSD/NVME storage for running Kali Linux and quickly
+      cloning, analyzing, and recovering large disks; every kind of external
+      drive connection needed to recover or clone disks using hardware or
+      software cloning device (NVME, Sata, floppy disks even!)
+    </li>
+  </ul>
+</details>
+
+<details  class="section" id="employment-history">
+  <summary><h2>Employment History</h2></summary>
+  <h3>Ford Motor Company - AI Vision Systems Software Engineer</h3>
+  <p>October 2023 - Present</p>
+  <ul>
+    <li>
+      Maintain several SharePoint sites, including technical documentation,
+      internal end-user documentation, and external user documentation.
+    </li>
+    <li>
+      Create vision models with YOLOv3 for vision system deployments across Ford
+      plants globally.
+    </li>
+    <li>
+      Collaborate with third-party/partner companies, such as IBM, to maintain
+      the distributed application that the vision application relies on.
+    </li>
+    <li>
+      Assist in updating and testing both server-side and edge devices for the
+      vision application.
+    </li>
+    <li>
+      Use a ticket system in conjunction with team documentation to manage
+      update schedules for iOS devices and various back-end components of the
+      application.
+    </li>
+    <li>
+      Support the server-side application and work with DevOps teams to maintain
+      an OpenShift (Kubernetes) application, including upgrading operators,
+      config maps, and using GitHub.
+    </li>
+    <li>
+      Leverage Infrastructure as Code and CI/CD pipelines to automate updates in
+      the Kubernetes cluster environment.
+    </li>
+    <li>
+      Write custom Python and bash scripts to automate tasks, reducing manual
+      labor and improving efficiency for the team. This includes tasks like
+      post-upgrade testing and document/database updates.
+    </li>
+    <li>Develop vision models for complex and special use cases.</li>
+    <li>Manage hardware inventory and deployment for various projects.</li>
+    <li>
+      Create technical documentation, tutorials, and visual diagrams using Miro,
+      PowerPoint, Markdown, video, and other tools.
+    </li>
+    <li>
+      Design network and software flow architecture diagrams of the application,
+      from high-level overviews to granular details.
+    </li>
+    <li>
+      Deploy a Grafana instance using Docker (Podman) to monitor the Kubernetes
+      cluster, successfully deploying it in the environment.
+    </li>
+    <li>
+      Develop and maintain the architecture for using the open-source VaultOS
+      application to store and manage secrets for the application.
+    </li>
+    <li>
+      Demonstrate excellent documentation management skills for all technical
+      and troubleshooting activities.
+    </li>
+    <li>
+      Created an entire full-fledged framework - including development of Python
+      modules and creation of a Python Virtual Enviroment to host my Python
+      framework - for a suite of vision tools that interact with APIs from our
+      vision application backened, including GCP storage, PVC storage, and
+      MongoDB-stored image metadata. I designed a modular approach which wrapped
+      API calls into the context of our environment, giving flexibility to use
+      modules directly, or to use the framework to create other scripts that
+      adhear to our environment. This enabled rapid development for any
+      vision-related data tied to our application for scripting out lightweight
+      applications on the fly, benefiting technical leads and our customers
+      alike.
+    </li>
+    <li>
+      Created an entire full-fleged modular python program - including
+      development of Python modules and creation of a Python Virtual Enviroment
+      to host my Python framework - to diagnose, troubleshoot, diagram, document
+      (including version control), and setup for our vision system across all of
+      Ford globally, which includes hundreds of deployments, to make the
+      deployment of our application scalable and manageable, taking
+      troubleshoot, setup, and documentation time from hours and days to mere
+      seconds. The modularity of my program is at a complex systems-level
+      thinking, and enables the suite of tools to be used as stand alone and as
+      a conglomerate tool. Components involved include: and API that interacts
+      with MongoDB to fetch metadata, GCP/PVC Storage, and MQTT data from
+      various sources, all of which were cross compiled and analyzed into useful
+      setup, diagnostic, and diagrammed (yes, I created a graph module using
+      Pyvis library) results. There is also a web-scraping component using the
+      Selenium Web Driver python library, which I used to create an entire
+      framework for my team to use to build web scrapers within a specific web
+      application in the Ford environment, reducing the manual effort needed to
+      download and import results into our vision systems diagnostic and setup
+      program.
+    </li>
+  </ul>
+  <h3>
+    Edge Computing Research Assistant - University of Michigan-Dearborn (Under
+    Dr. Zheng Song)
+  </h3>
+  <p>October 2022 - October 2023</p>
+  <ul>
+    <li>
+      Built Clover 4.2 Linux-based open-source autonomous drone for edge
+      computing optimization.
+    </li>
+    <li>
+      Built and programmed an advanced PiCar X autonomous car for edge computing
+      optimization.
+    </li>
+    <li>
+      Developed Python programs to control drone trajectories and
+      communications.
+    </li>
+    <li>
+      Authored a survey paper on the drone-car domain and edge computing for
+      autonomous vehicles.
+    </li>
+    <li>
+      Lead author of the paper titled "<a
+        href="https://ieeexplore.ieee.org/document/10210862"
+        ><u
+          >Extending Automotive Vision System by Unmanned Aerial Vehicles</u
+        ></a
+      >" which won the Senior Design 1 award.
+    </li>
+    <li>
+      Developed an algorithm to balance power consumption between the drone and
+      the car computations.
+    </li>
+    <li>
+      Setup simulation environments and implemented them in real-world
+      scenarios.
+    </li>
+    <li>
+      Deployed Linux Ubuntu virtual machine environments for testing and
+      simulation.
+    </li>
+  </ul>
+  <h3>Service Desk Rover and Grader - University of Michigan-Dearborn</h3>
+  <p>February 2020 - August 2023</p>
+  <ul>
+    <li>Troubleshoot network access issues and software problems for users.</li>
+    <li>Address classroom electronic function emergencies.</li>
+    <li>
+      Maintain classroom computers, projectors, and other electronic equipment.
+    </li>
+    <li>
+      Grade student programs and exams for CIS-310 (Organizational and Assembly
+      Language).
+    </li>
+  </ul>
+  <h3>Artech/IBM Deskside Support for R1-RCM</h3>
+  <p>Feb 2019 - June 2019</p>
+  <ul>
+    <li>
+      Troubleshoot user network access issues and software application problems.
+    </li>
+    <li>Decommission repaired equipment and set up workstations.</li>
+    <li>Image machines for the Windows 10 rollout.</li>
+    <li>Organized build rooms for mass imaging projects.</li>
+    <li>
+      Documented and developed troubleshooting solutions for users' hardware and
+      software issues.
+    </li>
+  </ul>
+  <h3>
+    Test Driver and Vehicle Systems Evaluator - Performance Driven Workforce /
+    Ford Motor Company
+  </h3>
+  <p>Feb 2020 - June 2021</p>
+  <ul>
+    <li>
+      Drove in various environments to test vehicle driving performance and
+      features.
+    </li>
+    <li>Completed documentation for vehicle systems evaluations.</li>
+    <li>
+      Test drove new technology, including the electric Mach E Mustang and
+      hybrid Maverick truck.
+    </li>
+    <li>
+      Evaluated autonomous vehicle features such as lane assist, vision systems,
+      and adaptive cruise control.
+    </li>
+  </ul>
+  <h3>Medium-Heavy Truck Delivery Driver - Fortune Fish &amp; Gourmet</h3>
+  <p>Fall 2021 - Fall 2024</p>
+  <ul>
+    <li>Possess a Chauffeur's License and drive trucks up to 26,000 pounds.</li>
+    <li>
+      Deliver fish and produce to restaurants and supermarkets, managing complex
+      logistics.
+    </li>
+    <li>
+      Navigate challenging routes in urban and rural environments under
+      high-pressure conditions.
+    </li>
+    <li>
+      Build strong relationships with restaurant and grocery store managers
+      through excellent customer service.
+    </li>
+  </ul>
+</details>
+
+<details  class="section" id="certifications-and-achievements">
+  <summary><h2>Certifications and Achievements</h2></summary>
+  <ul>
+    <li>
+      04/15/2023: First Place Winner, Spring 2023 Senior Design 1 Competition -
+      <a href="#sky-socket"
+        >see: Sky Socket from the Programming Projects section</a
+      >
+    </li>
+    <li>
+      07/01/2016: Cisco Certified Network Associate (CCNA) -
+      <a
+        href="https://www.credly.com/badges/9ebd4c50-300a-4d27-87e2-7d69920c3d42/public_url"
+        >CSCO12870481</a
+      >
+    </li>
+    <li>07/01/2015: Cisco Certified Entry Level Network Technician (CCENT)</li>
+  </ul>
+</details>
+
+<details  class="section" id="education">
+  <summary><h2>Education</h2></summary>
+  <ul>
+    <li>
+      University of Michigan-Dearborn: 2018-2023, 3.46 GPA, Bachelor of Science
+      in Computer Science, Concentration in Computer Science; Minor in Spanish
+      <a
+        href="https://www.michaelsutter.com/ediploma?fn=diplomastatuscheck&amp;key=02000000972cfa230663567b7f4253b5c53b7b88bc5b6e47207c4f611b03ba18330f178522bc31560841797a3b49ec26deb5651353cde7fda72d021d213be786aebe421e"
+        target="_blank"
+        >(Verify Degree)</a
+      >
+    </li>
+    <li>
+      Henry Ford Community College: 2017-2018, 2022, 3.9 GPA in Computer Network
+      Administration
+    </li>
+    <li>Roosevelt High School: 2015-2017, 4.017 GPA</li>
+  </ul>
+</details>
+
+<details  class="section" id="programming-projects">
+  <summary><h2>Programming Projects</h2></summary>
+  <p>
+    <em
+      ><strong
+        >Click any project name (blue hyperlinked text) to go to GitHub
+        Repository link for the code and report files.<br /><br
+      /></strong>
+    </em>
+    Over 40 advanced programs using VSCode (using extensions for linting, etc.)
+    and Visual Studio IDE's, and using GitHub and Gitlab for version control:
+    programs written in C++ (inlcuding Object-oriented programming with classes
+    and header files), Python (including creation and setup of Python Virtual
+    Environments, creating Python modules, etc.), R (using R studio), and MASM.
+    Below is a categorized sample of major projects with links to public GitHub
+    repositories where available.
+  </p>
+  <h3>Data Science: R Programming Language and R Studio IDE</h3>
+  <ul>
+    <li>
+      <strong
+        >Personal Finance, Data Science & Visualization Application</strong
+      >
+      (R): Designed and implemented an end-to-end personal finance analytics
+      program in the RStudio IDE to track and analyze finances across multiple
+      banks and transactional institutions using raw CSV data (including Amazon
+      purchase history and other merchants). Engineered a full data-science
+      workflow with complex data cleaning, schema reconciliation, and robust
+      merge operations, reinforced by debugging, validation, and unit tests.
+      Delivered spending analysis, budgeting, and segmented insights supported
+      by ggplot2 library visualizations; generated multiple intermediary data
+      frames and graphics; and maintained version-controlled snapshots for
+      reliable, point-in-time views of overall financial health.
+    </li>
+  </ul>
+  <h3>CIS-150: Computer Science I</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/FINAL%20PROJECT%20CIS-150%20WINTER%202020/FINAL%20PROJECT%20CIS-150%20WINTER%202020%20-%20MEECH"
+      >
+        <strong>Dynamic Airline Seat Reservation System</strong>
+      </a>
+      (C++): Built a flexible airline reservation and cancellation system that
+      handles any number of rows and seat configurations by parsing structured
+      input files; supported mixed row formats and dynamic seating arrangements.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%201"
+      >
+        <strong>Introductory Console I/O Programs</strong>
+      </a>
+      (C++): Wrote basic programs including "Hello World", input/output prompts,
+      and ASCII triangle patterns to build foundational C++ programming skills.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%202"
+      >
+        <strong>Coin Value Calculator and Input Summation</strong>
+      </a>
+      (C++): Computed dollar values from coin counts and summed two integers
+      based on user input, focusing on basic arithmetic and input handling.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%203"
+      >
+        <strong>Conditional Logic and Equation Solver</strong>
+      </a>
+      (C++): Implemented voter eligibility checks, overtime pay calculation, and
+      quadratic equation root evaluation using control structures and
+      mathematical formulas.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%204"
+      >
+        <strong>Control Flow and Loop Constructs</strong>
+      </a>
+      (C++): Developed programs using `if/else`, `switch`, and loops to handle
+      temperature advice, triangle printing, and grade interpretation based on
+      user inputs.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%205"
+      >
+        <strong>Classroom and Game Data Evaluators</strong>
+      </a>
+      (C++): Built applications to compute average grades, determine basketball
+      winners, and find max/min values from sets of integers using functions and
+      menus.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%206"
+      >
+        <strong>Function Design with Pass-by-Reference</strong>
+      </a>
+      (C++): Created reusable functions to compute sums, averages, and
+      reference-modifying operations while emphasizing return types and
+      parameter passing.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%207"
+      >
+        <strong>File-Based Payroll and Grade Analyzer</strong>
+      </a>
+      (C++): Parsed structured employee and student data files to calculate
+      weekly salaries and grade statistics using file I/O and array operations.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%208"
+      >
+        <strong>Array Statistics and Search Tool</strong>
+      </a>
+      (C++): Implemented functions to compute array metrics (sum, avg, min, max)
+      and search values by position using linear search techniques.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%209/Lab%2009%20-%20Meech"
+      >
+        <strong>2D Array and Struct-Based Grade Processing</strong>
+      </a>
+      (C++): Wrote functions to analyze 2D arrays for averages and searches;
+      also used structs to read student grade files and compute statistical
+      summaries.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%2010/Lab%2010%20-%20Meech"
+      >
+        <strong>Temperature Analyzer with Vectors</strong>
+      </a>
+      (C++): Designed functions using STL vectors to filter and count freezing
+      temperatures from a dataset, emphasizing vector manipulation and file
+      input.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/Lab%2011/Lab%2011%20-%20Meech"
+      >
+        <strong>US State Database System</strong>
+      </a>
+      (C++): Created a `State` class and supporting functions to manage a US
+      state database with search by year of statehood and abbreviation;
+      processed from structured file input.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-150_COMPUTER_SCIENCE_I/tree/main/WORKOUT%20PACE%20CALCULATOR%20--BY%20DEMETRIUS%20JOHNSON"
+      >
+        <strong>Workout Pace Calculator</strong>
+      </a>
+      (C++): Developed a console app to compute average workout pace from
+      repeated user-entered time inputs, supporting interactive session restarts
+      and menu selection.
+    </li>
+  </ul>
+  <h3>CIS-200: Computer Science II</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/labs/CIS%20200%20LAB%201/JohnsonDemetriusLab01"
+      >
+        <strong>Lab 01 - Object-Oriented Programming (OOO) with Classes</strong>
+      </a>
+      (C++): Created a `Student` class using separate compilation, constructors,
+      getters/setters, and formatted string output.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/labs/CIS%20200%20LAB%202/CIS-200-LAB2-DemetriusJohnson"
+      >
+        <strong>Lab 02 - Pointers</strong>
+      </a>
+      (C++): Practiced array-pointer manipulation and memory offset notation for
+      various traversal and value-filtering tasks.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/labs/CIS%20200%20LAB%203/CIS-200-LAB3-DemetriusJohnson"
+      >
+        <strong>Lab 03 - Inheritance and Polymorphism</strong>
+      </a>
+      (C++): Practiced Creation of multiple classes with inheritance and
+      polymorphism.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/labs/CIS%20200%20LAB%206/DemetriusJohnson-Lab6_CIS-200"
+      >
+        <strong>Lab 06 - Multi-Dimensional Arrays</strong>
+      </a>
+      (C++): Practiced array-pointer manipulation and memory offset notation for
+      various traversal and value-filtering tasks.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/labs/CIS%20200%20LAB%207/DemetriusJohnson-Lab7_CIS-200"
+      >
+        <strong
+          >Lab 07 - Recursive search with arrays, stack overflow, and other
+          array searching</strong
+        >
+      </a>
+      (C++): Practiced array-pointer manipulation and memory offset notation for
+      various traversal and value-filtering tasks.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/labs/CIS%20200%20LAB%208/LAB%208%20CIS%20200"
+      >
+        <strong
+          >Lab 08 - Random Access File-Based Credit Account System Using Structs
+          and Binary I/O</strong
+        >
+      </a>
+      (C++): This C++ program implements a menu-driven credit account management
+      system that uses <strong>file I/O</strong> (with
+      <code>ofstream</code>/<code>ifstream</code> and
+      <code>reinterpret_cast</code> for writing and reading binary data),
+      <strong>structs</strong> for fixed-size record storage,
+      <strong>random access file handling</strong> to directly update specific
+      records in <code>credit.dat</code>, and
+      <strong>C-style strings</strong> with <code>cin.getline()</code> for
+      bounded text input. It demonstrates <strong>constant values</strong> for
+      field size limits, <strong>type casting</strong> for binary data
+      operations, <strong>loops</strong> for user interaction and validation,
+      <strong>switch-case control structures</strong> for menu navigation,
+      <strong>input stream manipulation</strong> (<code>cin.clear()</code>,
+      <code>cin.ignore()</code>), and <strong>functions</strong> for modular
+      design, enabling record creation, search, update, and formatted display
+      while preventing invalid or overflowed input.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/projects/AlgorithmAnalysisTestProject/TestingAndTimeComplexityAlgorithmAnalysis_DemetriusJohnson"
+      >
+        <strong>Algorithm Time Complexity Analysis</strong>
+      </a>
+      (C++): Analyzed algorithmic time complexity using Euclidean GCD and
+      logarithmic nested loop patterns to study Big-O behavior via console
+      simulations.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/projects/CIS%20200%20SoloProject/CIS-200-Project1-soloPRJ-DemetriusJohnson"
+      >
+        <strong>Custom String Class (Solo Project)</strong>
+      </a>
+      (C++): Implemented a custom C++ string class with deep copy semantics,
+      dynamic memory management, and the Rule of Three (copy constructor,
+      destructor, assignment).
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II/tree/main/projects/CIS%20200%20TeamProject/CIS_200_TEAM14_PRJ"
+      >
+        <strong>Multi-CPU Job Scheduler (Team Project)</strong>
+      </a>
+      (C++): Built a CPU scheduling simulation system using vectors and custom
+      job queues to model clock-driven job dispatch and processing across
+      multiple CPUs.
+    </li>
+  </ul>
+  <h3>CIS-200: Computer Science II (Retake)</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%202/CIS-200-LAB%202%20-DemetriusJohnson"
+        ><strong>Lab 02 - Macro Functions and Inline Expansions</strong></a
+      >
+      (C++): Explored preprocessor macros and inline functions to optimize
+      small, frequently used operations.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%203/CIS-200-LAB%203%20-DemetriusJohnson"
+        ><strong>Lab 03 - Data Representation and Array Processing</strong></a
+      >
+      (C++): C++ programs utilizing bitwise operations, ASCII character
+      classification, and 2D array processing (min/max/mean and neighbor
+      detection) to strengthen problem-solving and programming fundamentals
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/blob/main/Labs/Lab%204/CIS-200-LAB%204%20-DemetriusJohnson/Q4_LAB4.cpp"
+        ><strong>Lab 04 - Question 4 - Caesar Cipher Encryption Tool</strong></a
+      >
+      (C++): Created a basic cryptographic tool that shifts characters to
+      perform Caesar cipher encryption.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%205/CIS-200-LAB%205%20-DemetriusJohnson"
+        ><strong>Lab 05 - Custom Data Types and Operator Overloading</strong></a
+      >
+      (C++): Defined complex data types and overloaded operators to handle
+      student data and perform arithmetic operations.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%206"
+        ><strong>Lab 06 - Recursive Binary Search Implementation</strong></a
+      >
+      (C++): Wrote a recursive binary search function that tracks steps taken to
+      find an element within a sorted list.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%207/CIS-200-LAB_7-DemetriusJohnson"
+        ><strong>Lab 07 - Generic Data Type Swapper</strong></a
+      >
+      (C++): Implemented a template function to swap variables of any data type
+      using C++ templates.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%208/CIS-200-LAB_8-DemetriusJohnson"
+        ><strong>Lab 08 - Linked List Analyzer</strong></a
+      >
+      (C++): Developed functions to traverse and compute size and sum of values
+      in a linked list using pointer-based iteration.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%2010/CIS-200-LAB_10-DemetriusJohnson"
+        ><strong>Lab 10 - Polymorphism and Inheritance Demo</strong></a
+      >
+      (C++): Demonstrated object-oriented programming principles using
+      polymorphism, inheritance, and virtual functions in a pet simulation.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Labs/Lab%2011/CIS-200-LAB_11-DemetriusJohnson"
+        ><strong>Lab 11 - Binary Search Tree Implementation</strong></a
+      >
+      (C++): Built and traversed a binary search tree using struct nodes,
+      showcasing tree construction and in-order traversal.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Programming%20Assignments/assg%201/assg1_All_Files-Complete_DemetriusJohnson/MAIN_CPP_H%20FILES"
+        ><strong>Assignment 01 - Polymorphism and Inheritance Demo</strong></a
+      >
+      (C++): Demonstrated object-oriented programming principles using
+      polymorphism, inheritance, and virtual functions in a pet simulation.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Programming%20Assignments/assg%202/CIS-200_Assg2-DemetriusJohnson"
+        ><strong>Assignment 02 - Object Oriented Programming</strong></a
+      >
+      (C++): C++ project focusing on fundamental concepts including data
+      structures, functions, or object-oriented programming.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Programming%20Assignments/assg%203/CIS-200_Assg3-DemetriusJohnson"
+        ><strong>Assignment 03 - Linked List Analyzer</strong></a
+      >
+      (C++): Developed functions to traverse and compute size and sum of values
+      in a linked list using pointer-based iteration.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-200_COMPUTER_SCIENCE_II__RETAKE/tree/main/Programming%20Assignments/assg%204/CIS-200_Assg4-DemetriusJohnson"
+        ><strong
+          >Assignment 04 - Stack and Queue Data Structures Implementations -
+        </strong></a
+      >
+      (C++): C++ project focusing on fundamental concepts including data
+      structures, functions, or object-oriented programming.
+    </li>
+  </ul>
+  <h3>CIS-298: Intro to Python</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-298_INTRO_TO_PYTHON/tree/main/HW/CIS-298-IntroPython-HWassgs"
+        ><strong>Intro Python Homework Collection</strong></a
+      >
+      (Python): Completed a comprehensive set of introductory Python programming
+      assignments covering control flow, data structures, file I/O, algorithm
+      analysis, and data visualization.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-298_INTRO_TO_PYTHON/tree/main/HW/HW2"
+        ><strong>Data Structures Fundamentals Exercises</strong></a
+      >
+      (Python): Practiced creating and manipulating lists, tuples, and
+      dictionaries, including operations like insertion, indexing, length
+      calculation, and min/max retrieval.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-298_INTRO_TO_PYTHON/tree/main/HW/HW3"
+        ><strong>Control Flow and Date Arithmetic Problems</strong></a
+      >
+      (Python): Wrote scripts to map numeric days to names, compute return dates
+      after vacations, and analyze logical conditions, reinforcing branching and
+      modular arithmetic.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-298_INTRO_TO_PYTHON/tree/main/HW/HW6"
+        ><strong>Algorithm Timing &amp; Optimization Utilities</strong></a
+      >
+      (Python): Implemented a generic timing utility and refactored multiple
+      solutions to identify the most efficient method for printing numbers whose
+      digits are all even.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-298_INTRO_TO_PYTHON/tree/main/HW/HW7"
+        ><strong>CSV Tournament Score Generator &amp; Processor</strong></a
+      >
+      (Python): Generated a randomized tournament dataset, saved it to CSV, and
+      processed scores while handling missing values to compute player
+      statistics.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-298_INTRO_TO_PYTHON/tree/main/HW/HW8"
+        ><strong>Text Character Frequency Histogram</strong></a
+      >
+      (Python): Parsed a course syllabus to count occurrences of each character
+      (a-z, 0-9) and visualized the distribution in a matplotlib histogram.
+    </li>
+  </ul>
+  <h3>CIS-310: Computer Organization and Assembly Language</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-310_COMPUTER_ORGANIZATION_AND_ASSEMBLY_LANGUAGE/tree/main/WEEK_1-1/PROG%230/Program0_CIS-310_DemetriusJohnson"
+        ><strong>Program0_CIS-310_DemetriusJohnson</strong></a
+      >
+      (C++) Convert decimal numbers to binary, hexadecimal, and BCD (Binary
+      Coded Decimal), without using standard library functions to do conversion
+      (write my own custom-written C++ classes).
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-310_COMPUTER_ORGANIZATION_AND_ASSEMBLY_LANGUAGE/tree/main/Program1_CIS-310_DemetriusJohnson/Project32_VS2019"
+        ><strong>Program1_CIS-310_DemetriusJohnson </strong></a
+      >
+      (Assembly): This program adds and subtracts 32-bit integers.
+    </li>
+  </ul>
+  <h3>CIS-310: Computer Organization and Assembly Language (Retake)</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-310_COMPUTER_ORGANIZATION_AND_ASSEMBLY_LANGUAGE__RETAKE/tree/main/Programming%20Assignments/PROG%230/Program0_finished_DemetriusJohnson-CIS-310"
+      >
+        <strong>Program 0 - Decimal → Binary/Hex/BCD Converter</strong>
+      </a>
+      (C++): Converted every integer from 0-255 to binary, hexadecimal, and BCD
+      without using library conversion functions, outputting a neatly formatted
+      table.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-310_COMPUTER_ORGANIZATION_AND_ASSEMBLY_LANGUAGE__RETAKE/tree/main/Programming%20Assignments/PROG%231"
+      >
+        <strong>Program 1 - Register-Based Arithmetic Demo</strong>
+      </a>
+      (Assembly): Practiced MASM syntax by moving variables into registers and
+      computing (A-+-B) - (C-+-D) entirely with low-level arithmetic
+      instructions.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-310_COMPUTER_ORGANIZATION_AND_ASSEMBLY_LANGUAGE__RETAKE/tree/main/Programming%20Assignments/PROG%232"
+      >
+        <strong>Program 2 - Mean &amp; Variance Calculator</strong>
+      </a>
+      (Assembly): Calculated the mean and population variance of a 15-element
+      data set using loops, indexed addressing, and Irvine32 I/O routines.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-310_COMPUTER_ORGANIZATION_AND_ASSEMBLY_LANGUAGE__RETAKE/tree/main/Programming%20Assignments/PROG%233"
+      >
+        <strong>Program 3 - Exam-Score Letter-Grade Tool</strong>
+      </a>
+      (Assembly): Read a numeric exam score from the keyboard, parsed the input
+      string to an integer, mapped it to a letter grade, and displayed both
+      score and grade.
+    </li>
+  </ul>
+  <h3>CIS-350: Data Structures &amp; Algorithm Analysis</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-350_DATA_STRUCTURES_ALGORITHM_ANALYSIS/tree/main/projects/CIS350-Project1_Complete-DemetriusJ"
+        ><strong
+          >Programming Project 1 - Dynamic Sorted Array Library</strong
+        ></a
+      >
+      (C++): Implemented a templated sorted array with dynamic resizing, deep
+      copy, and insertion operations to practice fundamental data structure
+      design.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-350_DATA_STRUCTURES_ALGORITHM_ANALYSIS/tree/main/projects/Project2_Completed_DemetriusJohnson/offical%20and%20complete%20cpp%20and%20h%20files"
+        ><strong
+          >Programming Project 2 - Quadratic Probing Hash Table Spell
+          Checker</strong
+        ></a
+      >
+      (C++): Built a spell-checker that loads a dictionary into a quadratic
+      probing hash table and flags misspelled words from input text.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-350_DATA_STRUCTURES_ALGORITHM_ANALYSIS/tree/main/projects/CIS-350-Program3-Completed%20EXE%20and%20TXT%20files"
+        ><strong
+          >Programming Project 3 - Minimum Spanning Tree via Prim's
+          Algorithm</strong
+        ></a
+      >
+      (C++): Developed graph and priority-queue classes to compute minimum
+      spanning trees using Prim’s algorithm, outputting results to custom test
+      files.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-350_DATA_STRUCTURES_ALGORITHM_ANALYSIS/tree/main/projects/PROG%205%20COMPLETED"
+        ><strong
+          >Programming Project 5 - Backtracking Word Search Solver</strong
+        ></a
+      >
+      (C++): Created a backtracking algorithm to locate words in a character
+      grid, tracking coordinates and supporting multiple search sequences.
+    </li>
+  </ul>
+  <h3>CIS-387: Digital Forensics I</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-387_DIGITAL_FORENSICS_I/tree/main/Labs/lab%201/share/LiME-master/LiME-master"
+        ><strong
+          >Linux Memory Extractor (LiME) Kernel Module - Source Code</strong
+        ></a
+      >
+      (C, Digital Forensics): Implemented LiME kernel module to acquire live
+      Linux memory images, supporting compression, hashing, and writing to disk
+      or TCP streams for forensic analysis.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-387_DIGITAL_FORENSICS_I/tree/main/Labs"
+        ><strong>8 Total Labs</strong></a
+      >
+      (Digital Forensics Tools and Linux Bash Scripting): Use of Autopsy for
+      disk image forensic analysis and Linux disk management commands and
+      scripting. Understanding File System formats (MBR, GPT), disk partitioning
+      and partition tables, Disk I/O read and write processes, types of disk
+      memory; RAM snapshot images, etc.
+    </li>
+  </ul>
+  <h3>CIS 427: Computer Networks and Distributed Systems</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-427_COMPUTER_NETWORKS_AND_DISTRIBUTED_SYSTEMS/tree/main/Programming%20Assignments/P1/CIS-427-P1-SocketProgram-DemetriusJ"
+        ><strong>Cross-Platform Socket Program (Initial Version)</strong></a
+      >
+      (C++, Networking): Built the initial iteration of a banner-of-the-day TCP
+      service with separate client and server modules, parameterized IP input,
+      and error-handled Winsock calls.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-427_COMPUTER_NETWORKS_AND_DISTRIBUTED_SYSTEMS/tree/main/Programming%20Assignments/P1/CIS-427-P1-SocketProgram-DemetriusJ/P1%20COMPLETE/source%20code"
+        ><strong>Cross-Platform Socket Program (Completed Version)</strong></a
+      >
+      (C++, Networking): Refined and documented the socket program, adding
+      robust startup checks, modular functions, and maintenance scripting for
+      deployment.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-427_COMPUTER_NETWORKS_AND_DISTRIBUTED_SYSTEMS/tree/main/Programming%20Assignments/P1/Linux_Basic_socket_c"
+        ><strong>Linux Socket Programming (C)</strong></a
+      >
+      (C, Networking): Implemented a basic TCP client-server pair using Berkeley
+      sockets in C on Linux to exchange banner messages on port 5555.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-427_COMPUTER_NETWORKS_AND_DISTRIBUTED_SYSTEMS/tree/main/Programming%20Assignments/P1/Linux_Basic_socket_cpp"
+        ><strong>Linux Socket Programming (C++)</strong></a
+      >
+      (C, Networking): Implemented a basic TCP client-server pair using Berkeley
+      sockets in C on Linux to exchange banner messages on port 5555.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-427_COMPUTER_NETWORKS_AND_DISTRIBUTED_SYSTEMS/tree/main/Programming%20Assignments/P1/P1%20COMPLETE/source%20code"
+        ><strong>Socket Program — Final Polished Release</strong></a
+      >
+      (C++, Networking): Packaged the final polished release of the TCP
+      client-server project with cleaned codebase, consistent logging, and
+      compilation scripts.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-427_COMPUTER_NETWORKS_AND_DISTRIBUTED_SYSTEMS/tree/main/Programming%20Assignments/P1/Windows_Basic_socket_cpp"
+        ><strong>Windows Socket Programming (C++)</strong></a
+      >
+      (C++, Networking, Winsock): Created a Windows console client-server
+      application using Winsock to accept connections and transmit messages over
+      TCP.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-427_COMPUTER_NETWORKS_AND_DISTRIBUTED_SYSTEMS/blob/main/Programming%20Assignments/P2/CIS-427-P2-WireShark-Report-DemetriusJ.pdf"
+        ><strong>Wire Shark Demo</strong></a
+      >
+      Analyzing IP Addresses, TCP Packets, and Ethernet Frames
+    </li>
+  </ul>
+  <h3>CIS-447: Computer and Network Security</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-447_COMPUTER_AND_NETWORK_SECURITY/tree/main/programming%20assg/lab%201/code%20files"
+      >
+        <strong>Lab 01 - Shellcode &amp; Stack Buffer Overflow Toolkit</strong>
+      </a>
+      (C/Python): Created C programs and a Python script to craft shellcode,
+      build a NOP-sled payload, and trigger a stack buffer overflow that spawns
+      a root shell.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-447_COMPUTER_AND_NETWORK_SECURITY/tree/main/programming%20assg/lab%201/lab1_meech_complete"
+      >
+        <strong>Lab 02 - Automated Buffer Overflow Exploit Generator</strong>
+      </a>
+      (C/Python): Enhanced the Lab-1 exploit by automatically calculating return
+      addresses, embedding a NOP sled and shellcode, and writing a malicious
+      “badfile” for privilege escalation.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-447_COMPUTER_AND_NETWORK_SECURITY/tree/main/programming%20assg/lab%203%20-%20final%20exam/csp/csp"
+      >
+        <strong>Lab 03 - Content Security Policy Demo HTTP Server</strong>
+      </a>
+      (Python): Built a Python HTTP server that injects strict CSP headers (with
+      nonce) and companion scripts to demonstrate how CSP mitigates cross-site
+      scripting attacks.
+    </li>
+  </ul>
+  <h3>CIS-449: Software Security</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-449_SOFTWARE_SECURITY/blob/main/Assignment%201/CIS-449-Assg1-final-Meech.pdf"
+      >
+        <strong
+          >Assignment 01 - Virtual Machines, Linux Commands and Bash
+          Scripting</strong
+        >
+      </a>
+      Install and setup a virtual machine using Virtual Box; run every Linux
+      command under the sun, including understanding how to pipe (redirect
+      output) commands, append to files, extensive grep searching, etc.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-449_SOFTWARE_SECURITY/tree/main/Assignment%202/source%20code"
+      >
+        <strong
+          >Assignment 02 - Privilege Escalation &amp; Environment Exploits
+          Toolkit</strong
+        >
+      </a>
+      (C, Linux Security): Collection of C programs demonstrating Unix
+      privilege-escalation techniques—setuid leakage, unsafe
+      <code>system()</code> calls, environment-variable abuse, and LD_PRELOAD
+      hijacking—along with proof-of-concept exploits and safer alternatives.
+    </li>
+  </ul>
+  <h3>CIS-450: Operating Systems</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-450_OPERATING_SYSTEMS/blob/main/Projects/P1/Project1_CIS-450_DemetriusJohnson.pdf"
+        ><strong>Project 1 - xv6 Build and Custom User Program</strong></a
+      >
+      (C, xv6 OS): Set up and ran the xv6 OS in QEMU on a VirtualBox-hosted
+      Linux VM, then added and tested a custom user program to explore the OS
+      build process and toolchain.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-450_OPERATING_SYSTEMS/blob/main/Projects/P2/Project2_CIS-450_DemetriusJohnson.pdf"
+        ><strong>Project 2 - Date System Call in xv6</strong></a
+      >
+      (C, xv6 OS): Created a new <code>date()</code> system call to retrieve the
+      current date/time from the real-time clock, involving changes across
+      kernel, system call tables, assembly linkage, and a user program for
+      output.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-450_OPERATING_SYSTEMS/blob/main/Projects/P3/Q1-ProducerAndConsumerProblem/ProducerAndConsumerProblem-Q1-MEECH.c"
+        ><strong
+          >Project 3 - Question 1 - Producer-Consumer Bounded Buffer</strong
+        ></a
+      >
+      (C, POSIX Threads & Semaphores): Implemented a multi-buffer
+      producer-consumer system where producers insert integer sequences into
+      shared buffers and consumers remove and sum values, using semaphores
+      (<code>empty</code>, <code>full</code>, <code>mutex</code>) for mutual
+      exclusion and synchronization to prevent race conditions and ensure proper
+      alternation between producers and consumers.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-450_OPERATING_SYSTEMS/blob/main/Projects/P3/Q2-OneLaneBridgeProblem/OneLaneBridgeProblem-Q2-MEECH.c"
+        ><strong
+          >Project 3 - Question 2 - One-Lane Bridge Synchronization</strong
+        ></a
+      >
+      (C, POSIX Threads & Condition Variables): Designed a monitor-style
+      synchronization mechanism to allow cars from either direction to cross a
+      single-lane bridge without collisions or starvation, using random
+      direction assignment and fairness rules to manage access.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-450_OPERATING_SYSTEMS/blob/main/Projects/P3/Q3-ProfessorAndStudentProblem/ProfessorAndStudentProblem-Q3-MEECH.c"
+        ><strong
+          >Project 3 - Question 3 - Professor-Student Synchronization</strong
+        ></a
+      >
+      (C, POSIX Threads & Semaphores): Simulated an office scenario where
+      multiple students ask a professor questions one at a time. Enforced rules
+      so only one person speaks at once, each question is fully answered before
+      another begins, and no student leaves before receiving an answer, with
+      output showing interaction order and synchronization behavior.
+    </li>
+
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-450_OPERATING_SYSTEMS/blob/main/Projects/P4/P4_complete/Project4_report_CIS-450_DemetriusJohnson.pdf"
+        ><strong>Project 4 - Lottery Scheduler in xv6</strong></a
+      >
+      (C, xv6 OS): Extended MIT xv6 OS by adding new system calls, user-level
+      utilities, and an improved scheduling policy, deepening understanding of
+      kernel internals and process management; implemented a lottery-based CPU
+      scheduling algorithm by adding system calls (<code>settickets</code>,
+      <code>getpinfo</code>, <code>yield</code>), modifying the scheduler to
+      select processes based on random ticket draws, and testing with custom
+      tools to verify proportional CPU time allocation.
+    </li>
+  </ul>
+  <h3>CIS-479: Intro to Artificial Intelligence</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE/tree/main/programming/CIS-479_HW4_Q1_MarkovChain_Meech"
+        ><strong>Markov Chain Transition Probability Estimator</strong></a
+      >
+      (C++): Computed MLE transition probabilities for a 3-state Markov chain
+      with Laplace smoothing.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE/tree/main/programming/EM_Algorithm_HW4_Q7-CIS-479_meech"
+        ><strong>Gaussian Mixture-EM Algorithm</strong></a
+      >
+      (C++): Implemented the Expectation-Maximization algorithm to update
+      mixture weights, means, and variances for a 1-D Gaussian mixture.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE/tree/main/programming/K-MeansAlgorithm_HW4_Q6-CIS-479_meech"
+        ><strong>K-Means Clustering Implementation</strong></a
+      >
+      (C++): Clustered eight 2-D data points into two groups using Euclidean
+      distance and recalculated centroids in a single iteration.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE/tree/main/programming/minHeapPQ_TestModuleProject-meech"
+        ><strong>Generic Min-Heap Priority Queue Library</strong></a
+      >
+      (C++): Created and stress-tested a templated min-heap priority queue
+      supporting fast insertions and delete-min for A* search.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE/blob/main/programming/P1_COMPLETED%20PROJECT/CIS-479_Program1_Report_DemetriusJ_summer22_Wang.pdf"
+        ><strong>Windy Maze-A* Solver</strong></a
+      >
+      (C++): Solved a sliding-tile “windy maze” puzzle using A* search with
+      custom heuristics, hash-based explored set, and a min-heap frontier.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE/blob/main/programming/P2_COMPLETED%20PROJECT/Project2-CIS-479-Meech/MAIN_Project2-CIS-479-Meech.cpp"
+        ><strong
+          >Robot Localization with Hidden Markov Models (Value Iteration Bellman
+          Update Equation)</strong
+        ></a
+      >
+      (C++): Used Value Iteration Bellman Update Equation to estimate a robot's
+      position in a 6-x-7 windy grid world by updating posterior probabilities
+      via Bayesian filtering over motion and sensor inputs.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE/tree/main/programming/Value_Iteration_BellmanEquation_meech"
+        ><strong>Grid-World Value-Iteration Utility Calculator</strong></a
+      >
+      (C++): Applied the Bellman Equation to update state utilities in a
+      grid-world MDP, incorporating action-dependent rewards and transition
+      dynamics.
+    </li>
+  </ul>
+  <h3>CIS-479: Intro to Artificial Intelligence (Retake)</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE__RETAKE/tree/main/homework/hw4/hw4_summer2022/CIS-479_HW4_Q1_MarkovChain_Meech"
+        ><strong
+          >Markovchain Program - further tested with new scenario</strong
+        ></a
+      >
+      (AI/C++): Find probabilities from a Markov Chain data model; for CIS 479
+      SUMMER II With Dr. Shengquan Wang. Further tested my original program from
+      my first attempt, but with different test cases for computing MLE
+      transition probabilities for a 3-state Markov chain with Laplace
+      smoothing; proving the reliability, accuracy, and modularity of my program
+      from the first attempt.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE__RETAKE/tree/main/homework/hw4/hw4_summer2022/EM_Algorithm_HW4_Q7-CIS-479_meech"
+        ><strong>Em Algorithm - further tested with new scenario</strong></a
+      >
+      (C++): Create the Exepectation Maximization (EM) algorithm in order to
+      answer question 7 from HW4, CIS-479 SUMMER II with DR. Shengquan Wang.
+      This was from my second attempt at the course, but now with new test
+      cases, proving the reliability and accuracy and modularity of my program
+      from the first attempt.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE__RETAKE/tree/main/homework/hw4/hw4_summer2022/K-MeansAlgorithm_HW4_Q6-CIS-479_meech"
+        ><strong
+          >K-Means Clustering Algorithm - further tested with new
+          scenario</strong
+        ></a
+      >
+      (C++): Create a K-Means algorithm in order to answer question 6 from HW4,
+      CIS-479 SUMMER II with DR. Shengquan Wang. This was from my original
+      program from my first attempt at passing the course; and running my
+      program against new test cases proves the reliability and accuracy and
+      modularity of my program from the first attempt.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE__RETAKE/tree/main/programming/CIS-479_RETAKE_HW3"
+        ><strong
+          >Value Iteration Bellman Update Program - further tested with new
+          scenario</strong
+        ></a
+      >
+      (AI/C++): Implemented Value Iteration Bellman Update algorithm for another
+      scenario during my retake of the course. New test cases proved my initial
+      program was very well done and modular, proving to solve another scenario
+      using the same functionality with minmal tweaks - using the framework of
+      my program.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE__RETAKE/tree/main/programming/P1/CIS-479_RETAKE-P1-MEECH"
+        ><strong
+          >Windy Maze A* Search - further tested with new scenario</strong
+        ></a
+      >
+      (AI/C++): Implement the A* Search and Iterative Deepening Search (IDS)
+      algorithms. My program was very modular and well done, and when retaking
+      the course and having updated test cases, my program proved to work with
+      simple tweaks to variables and use of other generic functions I built.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-479_INTRO_TO_ARTIFICIAL_INTELLIGENCE__RETAKE/tree/main/programming/P2/CIS-479_RETAKE-P2-MEECH"
+        ><strong
+          >Robot Localization with Hidden Markov Models (Value Iteration Bellman
+          Update Equation) - further tested with new scenario</strong
+        ></a
+      >
+      (AI/C++): Made even more improvements and proved my first attempt program
+      worked excellent and modular by testing new test cases from my second time
+      taking the course. Implement Robot Localization with the HMM (Hidden
+      Markov Model) algorithm - CIS-479-Project2.
+    </li>
+  </ul>
+  <h3>CIS-490I: Artificial Intellgience - Deep Learning</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-490I_ARTIFICIAL_INTELLIGENCE_DEEP_LEARNING/blob/main/HW/HW2/First%20MLP.ipynb"
+        ><strong>Setup Virtual Environment for Ananconda 3</strong></a
+      >
+      (Anaconda Virtual Environment): Use Virtual Box to create a virtual
+      machine and install Anaconda 3 virtual environment and packagae manager
+      tool - specifically for setting up Juypter Notebook for running deep
+      learning programs.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-490I_ARTIFICIAL_INTELLIGENCE_DEEP_LEARNING/blob/main/HW/HW2/First%20MLP.ipynb"
+        ><strong>My First MLP</strong></a
+      >
+      (Python/OpenCV): Use Jupyter Notebook with Python Machine Learning
+      Libraries to create a Multi-layer Perceptron (MLP).
+    </li>
+  </ul>
+  <h3 id="sky-socket">
+    CIS-4951 and CIS-4952 : Design Seminar I and II - CIS and Software
+    Engineering
+  </h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-4951_DESIGN_SEMINAR_I/blob/main/Client%20-%20Dr%20Song/Backup%20Documents/CIS-SD1-Johnson%2CPellegrini%2CSchall%2CSauer-FINAL.png"
+        ><strong>Sky Socket - Project Poster</strong></a
+      >
+      (Python/OpenCV): Drone-Car Collaboration - Computer Vision and AI Object
+      Detection - Project Poster giving a visual diagram and overview of the
+      project which uses a drone and car to do AI-based image processing to help
+      map or alert the ground vehicle.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/CIS-4951_DESIGN_SEMINAR_I/blob/main/Client%20-%20Dr%20Song/Poster_Drone_car_Collaboration_officiallyUploaded-3-24-23.pdf"
+        ><strong
+          >Drone-Car Collaboration - Extending Automotive Vision Systems by
+          Unmanned Arial Vehicles (UAVs) - Poster Paper</strong
+        ></a
+      >
+      (Python/OpenCV): Poster Paper (2 pages) showing how we implemented
+      HSV-based red object detection using OpenCV, using a pi-carX and Clover
+      Drone to demo our idea, using live drone or camera streams together to map
+      a safe route for a ground vehicle.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/SKY_SOCKET_SENIOR_DESIGN_II/tree/main/backup%20of%20all%20code%20files%20-%20working%20final%20demo%20-%207-15-23"
+        ><strong>
+          Sky Socket - Drone-Car Collaboration - Final Project Demos</strong
+        ></a
+      >
+      (Python/OpenCV): All source code for the drone, car, and AI-detection
+      modules for implementing HSV-based red object detection using OpenCV for
+      live drone or camera streams, yolov4 custom-trained model for object
+      detection, and python socket programming for communications controls.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/SKY_SOCKET_SENIOR_DESIGN_II/tree/main/FINAL%20DOCS%20END%20OF%20SD2/Sky-Socket-Files/Sky-Socket-Files"
+        ><strong>Sky Socket - Official</strong></a
+      >
+      (Python/Networking): Drone-Car Collaboration program - officially
+      code-named "Sky Socket". This includes a .exe install wizard for the GUI
+      program used to control and run the Drone-Car collaboration demo.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/SKY_SOCKET_SENIOR_DESIGN_II/blob/main/Sky%20Socket%20Final%20Presentation.pptx"
+        ><strong>Sky Socket - Final Presentation</strong></a
+      >
+      (PowerPoint): Final Power Point Presentation for Drone-Car Collaboration
+      program - officially code-named "Sky Socket" - for end of Senior Design
+      Seminar II at University of Michigan-Dearborn With Dr. Bruce Maxim and Dr.
+      Zheng Song.
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=yHEEnfRzIkw"
+        ><strong>Sky Socket - Official Demo Video</strong></a
+      >
+      (Youtube): Demo Video for Drone-Car Collaboration program - officially
+      code-named "Sky Socket" - for end of Senior Design Seminar II at
+      University of Michigan-Dearborn With Dr. Bruce Maxim and Dr. Zheng Song.
+    </li>
+  </ul>
+  <h3>SPAN-420: Spanish-English Dictionary Tools</h3>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/SPAN-420_INTRO_TO_TRANSLATION/tree/HEAD/CSV%20dictionaries"
+      >
+        <strong>Interactive CSV Dictionary Search CLI</strong>
+      </a>
+      (Python): Console utility that scans a Spanish-English CSV dictionary
+      line-by-line and prints a user-specified number of matches.
+    </li>
+    <li>
+      <a
+        href="https://github.com/meechtheballer99/SPAN-420_INTRO_TO_TRANSLATION/tree/HEAD/DictionaryApp_meech"
+      >
+        <strong>Cross-Platform Dictionary Search Application</strong>
+      </a>
+      (C++ / Python): C++ and Python console programs for rapid substring search
+      across Spanish-English dictionaries, supporting Unicode input and
+      configurable result limits.
+    </li>
+  </ul>
+</details>
+<!-- END-SECTIONS -->
+      </div>
+    </div>
+  </body>
+</html>
